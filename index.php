@@ -30,16 +30,20 @@
                                 <td class="actions">
                                     <a href="<?= $BASE_URL ?>show.php?id=<?= $contact["idvaga"] ?>"><i class="fas fa-eye check-icon"></i></a>
                                     <a href="<?= $BASE_URL ?>edit.php?id=<?= $contact["idvaga"] ?>"><i class="far fa-edit edit-icon"></i></a>
-                                    <button type="submit" class="delete-btn"><i class="fas fa-times delete-icon"></i></button>
+                                    <form class="delete-form" action="<?= $BASE_URL ?>/config/process.php" method="POST">
+                                        <imput type="hidden" name="type" value="delete">
+                                        <imput type="hidden" name="idvaga" value="<?= $contact["idvaga"] ?>">
+                                        <button type="submit" class="delete-btn"><i class="fas fa-times delete-icon"></i></button>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
-            <?php else: ?>
+                                
+                    
+          <?php else: ?>
                 <p id="empty-list-text">Ainda não há vagas, <a href="<?= $BASE_URL ?>create.php">clique aqui para cadastrar vaga</a>.</p>
             <?php endif; ?>
         </div>  
 
-    <?php
-        include_once("templates/footer.php");
-    ?>
+    
+    
